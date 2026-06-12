@@ -7,6 +7,9 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -26,4 +29,7 @@ public class Offer {
     @ManyToOne
     @JoinColumn(name = "course_id")
     private Course course;
+
+    @OneToMany(mappedBy = "offer")
+    private List<Resource> resources = new ArrayList<>();
 }
